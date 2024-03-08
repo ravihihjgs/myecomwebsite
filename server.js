@@ -23,12 +23,12 @@ app.use(morgan('dev'));
 app.use(cors()); // Enable CORS
 
 // Routes
-app.use("/api/v1/auth", authroute);
-app.use('/api/v1/category', CategoryRoutes);
-app.use('/api/v1/product', ProductRoute);
+app.use(process.env.REACT_APP_BACKEND+"/api/v1/auth", authroute);
+app.use(process.env.REACT_APP_BACKEND+'/api/v1/category', CategoryRoutes);
+app.use(process.env.REACT_APP_BACKEND+'/api/v1/product', ProductRoute);
 
 // Default route
-app.get('/', (req, res) => {
+app.get(process.env.REACT_APP_BACKEND+'/', (req, res) => {
     res.send("<h1>Welcome to Artful Stitches</h1>");
 });
 
